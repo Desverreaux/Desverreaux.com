@@ -1,0 +1,5 @@
+# This file gives a convinent method of apply alterations to the 
+# php.ini configuration file located on the apache (And only apache) 
+# server 
+
+php_value date.timezone America/Chicago
