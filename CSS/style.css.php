@@ -52,4 +52,3 @@ echo $colorText1;
 ?>;
 
 }
-
