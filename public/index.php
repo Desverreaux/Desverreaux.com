@@ -1,5 +1,5 @@
 <?php 
 
-echo "This is the www directory";
+echo "This is the public directory";
 
 ?> 
