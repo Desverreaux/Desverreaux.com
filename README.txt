@@ -1,13 +1,11 @@
 Current Issues that need solutions TODO
-----fix how the animations work
-    |----find out why set interval isn't defined 
-    |----find out why you can't query for the jquery version
+
+
+
+
 
 When setting up the remote server, you will need to register composer(maybe) in the $PATH variable, the exe (or whatever it is on linux is 
 ~/.composer/vender/bin)
-
-
-
 
 
 Z-index Reservation Chart
@@ -27,3 +25,25 @@ Z-index Reservation Chart
 14--
 15--Dimming Screen
 16--Contact form
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
