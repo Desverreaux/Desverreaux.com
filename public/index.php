@@ -54,4 +54,8 @@ $response->send();
 
 $kernel->terminate($request, $response);
 
+<<<<<<< HEAD
 ?>
+=======
+?>
+>>>>>>> 6c422ef1d8d4646c725474dc545b74dfe53a6685
