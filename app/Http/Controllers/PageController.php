@@ -14,7 +14,12 @@ class PageController extends Controller
         return view('Pages.Landing')->with('Passed_Data',$Passed_Data);
     }
 
-
+    public function debug() {
+        $Passed_Data = array(
+            'images' => self::PageController_Initialize()
+        );
+        return view('Pages.Debug')->with('Passed_Data',$Passed_Data);
+    }
 
 
 

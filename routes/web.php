@@ -14,3 +14,5 @@
 */
 
 Route::get('/', 'PageController@index');
+
+Route::get('/debug', 'PageController@debug');
