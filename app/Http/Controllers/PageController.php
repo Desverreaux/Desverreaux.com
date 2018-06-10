@@ -14,13 +14,12 @@ class PageController extends Controller
         return view('Pages.Landing')->with('Passed_Data',$Passed_Data);
     }
 
-    public function debug() {
+    public function Playground() {
         $Passed_Data = array(
             'images' => self::PageController_Initialize()
         );
         return view('Pages.Debug')->with('Passed_Data',$Passed_Data);
     }
-
 
 
 
@@ -37,6 +36,10 @@ class PageController extends Controller
 
         require_once($_SERVER['DOCUMENT_ROOT'] .'/public/PHP/PathAssignments.php');
         require_once('./PHP/ColorPallete.php');
+
+        
+
+
 
         return $images;
     }

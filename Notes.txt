@@ -1,0 +1,46 @@
+Current Issues that need solutions TODO
+
+strings entered into the url need to be formated such that:
+    Desverreaux.com/debug
+    Desverreaux.com/Debug
+lead to the same place 
+
+Z-index Reservation Chart
+1--
+2--
+3--
+4--
+5--
+6--
+7--
+8--
+9--
+10--
+11--
+12--
+13--
+14--
+15--Dimming Screen
+16--Contact form
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

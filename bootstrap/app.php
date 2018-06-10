@@ -41,6 +41,11 @@ $app->singleton(
     App\Exceptions\Handler::class
 );
 
+$app->singleton(
+    App\App\Http\Controllers\PageController::class 
+);
+
+
 /*
 |--------------------------------------------------------------------------
 | Return The Application
