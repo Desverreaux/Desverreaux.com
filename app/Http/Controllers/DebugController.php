@@ -18,7 +18,7 @@ class DebugController extends PageController
     public function Playground($Passed_Data = NULL) {
         $PageObj = $this->initPageObject('Playground', $Passed_Data);
          
-        return $this->ContructedPage('Pages.Debug', NULL);
+        return $this->ContructedPage('Pages.Playground', NULL);
     }
 
 }

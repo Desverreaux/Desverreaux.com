@@ -4,36 +4,34 @@
         <title>Test page</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+        <script> window.Laravel = { csrfToken: '{{ csrf_token() }}' } </script>
         @include('Components.GlobalScripts')
         @include('Components.Sidebar.Head')
 
+        import lunarCalendar from 'vue-lunar-calendar'
+
+
         <style>
-          #sandbox {
-            top: 10%;
-            left: 10%;
-            width: 80%;
-            height: 80%;
-            color: #900009;
-            background-color: #999999;
-            border: 1px solid white;
-            display: inline-block;
-            margin: 5vh 5vh 5vh 10vh;
+          .container {
+            color: white;
           }
           
-          #main {
-            margin: 0px; 
+          #app {
+            margin: 0px 64px; 
             height: 100%;
             width: 100%;
             min-height: 100vh;
-            background-color: grey;
             vertical-align: top;
+            background-color: #1e1e1e;
+
           }
 
           body {
             margin: 0;
             padding: 0;
             border: none;
+            background-color: #1e1e1e;
           }
         
         </style>
@@ -43,15 +41,14 @@
 <body>
       @include('Components.Sidebar.Body')
       
-<div id="main" class="">
-    
-    <div id="sandbox">
-      <h6> You are currently in a section of the webserver reserved exclusively for testing purposes.</h6>
-
+<div id="app">
+    <div id="container">
+      <articles></articles>
+    </div>          
   </div>
 </div>
 
-
+  <script src="{{asset('js/app.js') }}"></script>
 
 </body>
 </html>
