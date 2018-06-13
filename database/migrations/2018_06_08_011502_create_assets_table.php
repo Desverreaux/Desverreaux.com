@@ -38,3 +38,6 @@ class CreateAssetsTable extends Migration
         Schema::dropIfExists('assets');
     }
 }
+
+//TODO (###### Wed Jun 13 13:18:17 CDT 2018)
+// Add the modifications made to the table in MyPhpAdmin to the migrations table

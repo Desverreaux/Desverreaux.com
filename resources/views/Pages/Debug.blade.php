@@ -5,11 +5,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        @component('Components.GlobalScripts')
-        @endcomponent
-
-        @component('Components.Sidebar.Sidebar_Head')
-        @endcomponent       
+        @include('Components.GlobalScripts')
+        @include('Components.Sidebar.Head')
 
         <style>
           #sandbox {
@@ -44,9 +41,7 @@
     
       </head>
 <body>
-      @component('Components.Sidebar.Sidebar_Body')
-
-      @endcomponent
+      @include('Components.Sidebar.Body')
       
 <div id="main" class="">
     

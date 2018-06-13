@@ -10,9 +10,9 @@ class DebugController extends PageController
     public function phpinfo($Passed_Data = NULL) {
         $PageObj = $this->initPageObject('phpinfo');
 
-        $PageObj->BodyComponents = array('Components.phpinfo');
+        array_push($PageObj->BodyComponents,'Components.phpinfo');
 
-        return $this->ContructedPage('Layouts.Base', $PageObj);
+        return $this->ContructedPage('Pages.Simple', $PageObj);
     }
 
     public function Playground($Passed_Data = NULL) {
