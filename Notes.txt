@@ -23,10 +23,11 @@ Z-index Reservation Chart
 15--Dimming Screen
 16--Contact form
 
+Helpful Shell Commands
 
-
-
-
+----Reading the log file
+    PS: Get-Content {Path to project}/storage/logs/Devlogs.log -wait
+    Bash: ???
 
 
 

@@ -44,6 +44,16 @@ return [
             'level' => 'debug',
         ],
 
+        'browser' => [
+            'driver' => 'monolog',
+            'handler' => Monolog\Handler\BrowserConsoleHandler::class,
+            'formatter' => Monolog\Formatter\HtmlFormatter::class,
+            'level' => 'debug',
+            'formatter_with' => [
+                'dateFormat' => 'Y-m-d',
+            ],
+        ],
+
         'daily' => [
             'driver' => 'daily',
             'path' => storage_path('logs/laravel.log'),

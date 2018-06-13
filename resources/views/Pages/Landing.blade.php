@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ config('app.locale') }}">
     <head>
-        <title>W3.CSS Template</title>
+        <title>{{$PageObj->Title}}</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -10,11 +10,15 @@
         <link rel="stylesheet" href="{{asset('CSS/Landing.css')}}">
         
         <?php
-          $images = $Passed_Data['images'];
+          $images = $PageObj->Data['images'];
       
         ?>
 
         <style type="text/css"> 
+
+            body, html {
+                background-color: #333333;
+             }
 
             /* First image (Logo. Full height) */
             .bgimg-1 {
