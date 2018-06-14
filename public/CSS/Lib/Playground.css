@@ -1,0 +1,20 @@
+.container {
+    color: white;
+  }
+  
+  #app {
+    margin: 0px 64px; 
+    height: 100%;
+    width: 100%;
+    min-height: 100vh;
+    vertical-align: top;
+    background-color: #1e1e1e;
+
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    border: none;
+    background-color: #1e1e1e;
+  }

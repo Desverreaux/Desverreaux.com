@@ -40,7 +40,7 @@ return [
 
         'single' => [
             'driver' => 'single',
-            'path' => storage_path('logs/laravel.log'),
+            'path' => storage_path('logs/Devlogs.log'),
             'level' => 'debug',
         ],
 
@@ -52,6 +52,12 @@ return [
             'formatter_with' => [
                 'dateFormat' => 'Y-m-d',
             ],
+        ],
+
+        'dev' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/Devlogs.log'),
+            'level' => 'debug',
         ],
 
         'daily' => [

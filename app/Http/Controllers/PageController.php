@@ -27,7 +27,7 @@ class PageController extends Controller
 
 //Section for logic that is universaly applied to each page requested
     public function initPageObject($RouteName, $URL_Parameters = NULL) {
-        $this->log->debug("The following page has been requested: " . $RouteName);
+       // $this->log->debug("The following page has been requested: " . $RouteName);
 
         $PageObj = new Page($RouteName, $URL_Parameters);
 

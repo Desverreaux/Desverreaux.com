@@ -16,7 +16,13 @@ class DebugController extends PageController
     }
 
     public function Playground($Passed_Data = NULL) {
-        $PageObj = $this->initPageObject('Playground', $Passed_Data);
+        $ViewName = 'Playground';
+
+        if(isset($Passed_Data)) {
+            $ViewName = $ViewName . $Passed_Data;
+        }
+
+        $PageObj = $this->initPageObject($ViewName, $Passed_Data);
          
         return $this->ContructedPage('Pages.Playground', NULL);
     }

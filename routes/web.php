@@ -34,7 +34,7 @@ Route::get(
 */
 
 Route::get(
-    '/Playground{Passed_Data?}',       
+    '/Playground/{Passed_Data?}',       
     ['uses' => 'DebugController@Playground', 
     'as'=>'Debugging']                 
 );
@@ -44,15 +44,3 @@ Route::get('/phpinfo','DebugController@phpinfo');
 Route::get('/view', function () {
     return view('Pages.Viewer');
 });
-
-
-/*
-|
-|
-|
-|
-|
-|
-|
-|
-*/
