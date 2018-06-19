@@ -40,7 +40,7 @@ return [
 
         'single' => [
             'driver' => 'single',
-            'path' => storage_path('logs/Devlogs.log'),
+            'path' => storage_path('logs/laravel.log'),
             'level' => 'debug',
         ],
 
@@ -57,9 +57,9 @@ return [
         'dev' => [
             'driver' => 'single',
             'path' => storage_path('logs/Devlogs.log'),
-            'level' => 'debug',
+            'level' => 'info',
         ],
-
+        
         'daily' => [
             'driver' => 'daily',
             'path' => storage_path('logs/laravel.log'),
@@ -90,7 +90,7 @@ return [
 
         'errorlog' => [
             'driver' => 'errorlog',
-            'level' => 'debug',
+            'level' => 'error',
         ],
     ],
 

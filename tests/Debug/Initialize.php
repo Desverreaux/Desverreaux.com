@@ -1,25 +1,18 @@
-<html lang="en"> 
+<!DOCTYPE html>
+<html lang="{{ config('app.locale') }}">
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        
-        <?php 
+    <title>title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-            require($_SERVER['DOCUMENT_ROOT'] .'/public/PHP/PathAssignments.php');
-            
-            //include($directory['php'] .'/ColorPallete.php');
 
-            global $directory;
-
-            foreach($images as $k => $v) {
-                echo "<img src=\"" . $v . "\">";
-            }
-
-        ?>
-            
     </head>
+<body>
+    
+<?php 
+    phpinfo();
+?>
 
-    <body>
-    </body>
 
-</html>
+</body>
+</html> 

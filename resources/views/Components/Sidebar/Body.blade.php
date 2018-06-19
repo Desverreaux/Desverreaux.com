@@ -1,5 +1,5 @@
 <body>
-    <div id="contactElement" >
+    {{-- <div id="contactElement" >
         <div id="dimmingScreen"></div>
         <div id="alignmentTool">
             <div id="contactForm" class="noClick">
@@ -94,7 +94,7 @@
                 </div>   
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <div id="mySidenav" class="sidenav .btn-group-vertical" onclick="toggleNav()">      
         <a href="./index.php?link=Landing" class="block btn navButton">

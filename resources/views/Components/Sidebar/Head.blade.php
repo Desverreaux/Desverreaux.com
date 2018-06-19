@@ -10,7 +10,7 @@
     
     {{-- <link rel="stylesheet" href={{config('filesystems.public.root') . "/CSS/animate.css"}}> --}}
 
-    <script type="text/javascript" src="{{ URL::asset('Javascript/Lib/contact.js') }}"></script>
+    {{-- <script type="text/javascript" src="{{ URL::asset('Javascript/Lib/contact.js') }}"></script> --}}
     <script type="text/javascript" src="{{ URL::asset('Javascript/Lib/Sidebar.js') }}"></script>
 
 </head>

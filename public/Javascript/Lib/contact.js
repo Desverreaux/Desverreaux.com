@@ -1,48 +1,48 @@
-var overlayState = false;
+// var overlayState = false;
 
-initOverlay();
-
-
+// initOverlay();
 
 
-function toggleOverlay() {
-    overlayState ? disableOverlay() : enableOverlay();
-    overlayState = !overlayState
-}
 
-function initOverlay() {
-    $('.inputField').focus(function() {
-        $(this).next().css("width","100%");
-        $(this).next().addClass('SlideInLeft');
-    })
-    $('.inputField').blur(function() {
-        $(this).next().css("width","0%");
-        $(this).next().removeClass('SlideInLeft');
-    })
-}   
 
-function enableOverlay() {
+// function toggleOverlay() {
+//     overlayState ? disableOverlay() : enableOverlay();
+//     overlayState = !overlayState
+// }
 
-    $('#dimmingScreen').css("visibility", "visible");
-    $('#dimmingScreen').fadeIn("slow")
+// function initOverlay() {
+//     $('.inputField').focus(function() {
+//         $(this).next().css("width","100%");
+//         $(this).next().addClass('SlideInLeft');
+//     })
+//     $('.inputField').blur(function() {
+//         $(this).next().css("width","0%");
+//         $(this).next().removeClass('SlideInLeft');
+//     })
+// }   
+
+// function enableOverlay() {
+
+//     $('#dimmingScreen').css("visibility", "visible");
+//     $('#dimmingScreen').fadeIn("slow")
     
-    $("#contactForm").css("visibility", "visible");
-    $("#contactForm").addClass("bounce-in-top");
+//     $("#contactForm").css("visibility", "visible");
+//     $("#contactForm").addClass("bounce-in-top");
 
-    $("dimmingScreen").on("click", disableOverlay);
+//     $("dimmingScreen").on("click", disableOverlay);
 
-}
+// }
 
-function disableOverlay() {
+// function disableOverlay() {
 
-    $('#dimmingScreen').fadeOut("slow")
+//     $('#dimmingScreen').fadeOut("slow")
 
-    $("#contactForm").css("visibility", "hidden");
-    $("#contactForm").removeClass("bounce-in-top");
+//     $("#contactForm").css("visibility", "hidden");
+//     $("#contactForm").removeClass("bounce-in-top");
 
-    //$("#contactElement").css("z-index", "-1");
+//     //$("#contactElement").css("z-index", "-1");
 
-    $("dimmingScreen").off("click", disableOverlay);
+//     $("dimmingScreen").off("click", disableOverlay);
 
-}
+// }
 

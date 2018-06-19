@@ -4,5 +4,5 @@
 
 <link rel="stylesheet" href="{{ URL::asset('CSS/PublicLib/bootstrap/bootstrap.css') }}" />
 <link rel="stylesheet" href="{{ URL::asset('CSS/PublicLib/w3.css') }}" />
-<link rel="stylesheet" href="{{ URL::asset('CSS/Lib/Landing.css') }}" />
-<link rel="stylesheet" href="{{ URL::asset('CSS/Lib/Missing.css') }}" />
+{{-- <link rel="stylesheet" href="{{ URL::asset('CSS/Lib/Landing.css') }}" /> --}}
+

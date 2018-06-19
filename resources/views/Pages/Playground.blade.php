@@ -15,14 +15,22 @@
       </head>
 <body>
       @include('Components.Sidebar.Body')
-      
-<div id="app">
-  <div id="container">
-      
+
+<div id="main" class="page">
+
+  <span style="font-size:60px">Debuging Portal</span>
+
+  <div id="app" sytle="margin:0px">
+    <div class="row">
+      <Card></Card>
+      <Card></Card>
+      <Card></Card>
+      <Card></Card>
+    </div>
   </div>
 </div>
 
-  <script src="{{ asset('js/app.js') }}"></script>
+<script src="{{ asset('js/app.js') }}"></script> 
 
 </body>
 </html>

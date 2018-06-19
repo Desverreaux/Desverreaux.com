@@ -14,17 +14,20 @@ class CreateAssetsTable extends Migration
     public function up()
     {
         Schema::create('assets', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('Item');
-            $table->string('Filetype');
-            $table->double('Version');
-            $table->string('Quality');
-            $table->string('Alias');
-            $table->boolean('Hidden');
-            //$table->timestamps('Addition Date');
-            $table->string('Site Domain');
-            $table->string('Default Alt Text');
-            $table->string('Path');
+            // $table->increments('id')->index();
+            $table->string('Item',250);
+            $table->string('Filetype',250);
+            $table->integer('FileSizeBytes');
+            $table->double('Version')->default('1');
+            $table->string('Quality',250)->default('High');
+            $table->integer('Original')->default(0);  //
+            $table->boolean('NeedsCompression');
+            $table->string('Alias',50)->primary();
+            $table->boolean('Hidden')->default(false);
+            $table->string('SiteDomain',250)->default(config('APP_URL'));
+            $table->string('AltText',250);
+            $table->longText('Path');
+            $table->timestamps();
         });
     }
 
@@ -41,3 +44,8 @@ class CreateAssetsTable extends Migration
 
 //TODO (###### Wed Jun 13 13:18:17 CDT 2018)
 // Add the modifications made to the table in MyPhpAdmin to the migrations table
+
+/*
+DROP TABLE `Laravel`.`migrations`;
+DROP TABLE `Laravel`.'assets`;
+*/

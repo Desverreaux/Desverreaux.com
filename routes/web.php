@@ -32,10 +32,15 @@ Route::get(
 |Debug & Sandbox Pages
 |--------------------------------------------------------------------------
 */
+Route::get(
+    '/Playground',       
+    ['uses' => 'DebugController@Playground', 
+    'as'=>'Debugging']                 
+);
 
 Route::get(
     '/Playground/{Passed_Data?}',       
-    ['uses' => 'DebugController@Playground', 
+    ['uses' => 'DebugController@Playground_Subdir', 
     'as'=>'Debugging']                 
 );
 

@@ -1,20 +1,37 @@
-.container {
-    color: white;
+  #main {
+    background-color: #1e1e1e;
+    padding: 48px;
+    height: 100%;
+    width: 100%;
+    vertical-align: top;
+    overflow: inherit;
+  }
+
+  .page {
   }
   
-  #app {
-    margin: 0px 64px; 
+   #app {
     height: 100%;
     width: 100%;
     min-height: 100vh;
     vertical-align: top;
-    background-color: #1e1e1e;
+    overflow: inherit;
 
   }
 
   body {
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px;
+    padding-right: 48px;
     border: none;
-    background-color: #1e1e1e;
   }
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+    margin: 0px;
+  }
+
+  
