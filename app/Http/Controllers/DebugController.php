@@ -3,28 +3,23 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
+// use Illuminate\Http\Response;
 
 use App\Asset;
+use Intervention\Image\ImageManagerStatic as Image;
+use Intervention\Image\Response as Response;
+use \Imagick;
 
 class DebugController extends PageController
 {
-    public function __construct() {
-        $this->Help = app('\Helpers');
-    }
-    
-    public function phpinfo($Passed_Data = NULL) {
-        
+    public function phpinfo($Passed_Data = NULL) {      
         $PageObj = $this->initPageObject('phpinfo');
-
         array_push($PageObj->BodyComponents,'Components.phpinfo');
-
         return $this->ContructedPage('Pages.Simple', $PageObj);
     }
 
     public function Playground($RouteName, $Passed_Data = NULL) {
-
         $PageObj = $this->initPageObject($RouteName, $Passed_Data);
-
         return $this->ContructedPage('Pages.Playground' , $PageObj);    
     }
 
@@ -32,28 +27,30 @@ class DebugController extends PageController
     ////////Merge these two back at some point
     public function Playground_Subdir($RouteName, $Passed_Data = NULL) {
         $PageObj = $this->initPageObject($RouteName, $Passed_Data);
-        //$this->Help->CatalogAssets();
+        
+        // $this->AssetHandler->CatalogAssets();
 
-        $obj = new Asset();
-        //$obj = App\Asset::where('alias', 1)->get();
+        $obj = $this->ImageHandler->test2();
 
+        // return "check DB";
+        // return $obj->response('jpg');
+        //return $obj;
 
-
-        $PageObj->Data['lines'] = $obj->formatInfo();
-        return $this->ContructedPage('Pages.Playground.' . $RouteName , $PageObj);
+        // $PageObj->Data['lines'] = $obj;
+        // return $this->ContructedPage('Pages.Playground.' . $RouteName , $PageObj);
     }
 
-    
+    public function test() {
+        header('Content-type: image/jpeg');
 
+        $image = new Imagick('/var/www/Desverreaux.com/public/assets/images/coffee.jpeg');
 
+        // If 0 is provided as a width or height parameter,
+        // aspect ratio is maintained
+        $image->thumbnailImage(100, 0);
 
-    // function testHelperManager() {
-    //     $pass = false;
-    //     $test1 = app('\Helpers');
-    //     $pass = $test1->isConnectedPropagation();
+        echo $image;
+    }
 
-    //     return $pass;
-    // }
-
-
+//->get('Path')
 }

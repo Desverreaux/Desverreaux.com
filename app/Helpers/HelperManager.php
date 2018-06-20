@@ -3,14 +3,11 @@
 namespace App\Helpers;
 
 use Illuminate\Support\Facades\Log;
-use App\Asset;
-
 
 class HelperManager {
 
     public function __construct() {
-        $this->FileMapper = new Helper_FileMapper();
-        $this->ImageCompression = new Helper_ImageCompression();
+        //$this->ImageCompression = new Helper_ImageCompression();
     }
     
 /*-------------------------------------------------------------
@@ -31,37 +28,6 @@ class HelperManager {
                 }
                 return $fixedArray;
         }
-
-    function CatalogAssets($PathToCatalog = NULL) {
-        // The Placement of this functionality within the architecture
-        // is a problem and should be refactored 
-        $PathToCatalog = ($PathToCatalog == NULL ? public_path('Assets') : $PathToCatalog);
-
-        $PathArray = $this->FileMapper->loopThroughDir(public_path('Assets'));
-
-
-        $SuccessfulInserts = 0;
-        foreach($PathArray as $PathToAsset) {
-            $obj = new Asset($PathToAsset);
-
-            // // implement fuctionality to prevent repeat inserts
-            // if($obj->) {
-
-            // }
-
-
-            $obj->createRecord();
-            
-            if(true) {
-                $SuccessfulInserts += 1;
-            }
-        }
-        $report = array("DATABASE UPDATE: ") . $SuccessfulInserts . " new Asset Items have been added to the database.";
-        Log::info($report);
-    } 
-
-    
-
 /*-------------------------------------------------------------
 |                    Complex Helper Tasks  
 -------------------------------------------------------------*/
@@ -76,22 +42,6 @@ class HelperManager {
 -------------------------------------------------------------*/
 // if anouther file needs an instance of a helper file class, this 
 // section will include functions to create, init, and return them
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

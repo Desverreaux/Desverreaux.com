@@ -16,7 +16,9 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(255);
-        //$this->app->singleton( 'Helpers', \App\Helpers\HelperManager::class );
+        $this->app->singleton('AssetHandler', \App\Handlers\AssetHandler::class);
+        $this->app->singleton('ImageHandler', \App\Handlers\ImageHandler::class);
+        $this->app->singleton('Helpers', \App\Helpers\HelperManager::class );
         
     }
 

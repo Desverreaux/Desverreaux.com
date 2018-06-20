@@ -1,6 +1,11 @@
 <?php
 
 #require
+use Intervention\Image\ImageManager;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Http\Response;
+
+use Intervention\Image\ImageManagerStatic as Image;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,6 +48,13 @@ Route::get(
     ['uses' => 'DebugController@Playground_Subdir', 
     'as'=>'Debugging']                 
 );
+
+Route::get(
+    '/image',       
+    ['uses' => 'DebugController@test', 
+    'as'=>'DebuggingImage']                 
+);
+
 
 Route::get('/phpinfo','DebugController@phpinfo');
 

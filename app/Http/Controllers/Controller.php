@@ -8,44 +8,20 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 use Illuminate\Support\Facades\Log;
-use Monolog\Handler\StreamHandler;
-use Monolog\Logger;
-
 
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     function __construct() {
-        //$this->logs();
+// should have a instance associated with the logic
 
+//switch to a static implementation 
 
-
-
-    }
-
-//example of use: $this->log->debug(config('app.debug'));
-    function logs() {
-        if(config('app.debug')) {
-            $this->enableFileLogs();
-            $this->enableBrowserLogs();
-        }
-        else {
-            $this->enableBrowserLogs();
-        }
-    }
-
-
-    function enableFileLogs() {
-        $log_stream = new StreamHandler(storage_path('logs/Devlogs.log'), Logger::DEBUG);
+        $this->Help = app('Helpers');
+        $this->AssetHandler = app('AssetHandler');
+        $this->ImageHandler = app('ImageHandler');
         
-        $this->log = new Logger('Controller');
-        
-        $this->log->pushHandler($log_stream);
     }
 
-    function enableBrowserLogs() {
-        
-
-    }
 }

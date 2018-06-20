@@ -11,9 +11,11 @@ class Asset extends Model
     //1 will cause corrupted files to transmit.
     const LAR = 0.5; 
 
-    function __construct( $real_path_to_asset ) {
-        $this->Path = $real_path_to_asset;
-        $this->resolveValues();
+    function __construct( $real_path_to_asset = NULL ) {
+        if($real_path_to_asset != NULL) {
+            $this->Path = $real_path_to_asset;
+            $this->resolveValues();
+        }
     }
 
     function resolveValues() {
@@ -34,6 +36,10 @@ class Asset extends Model
 
     function CreateRecord()  {  
         $this->save();  
+    }
+
+    function UpdateRecord()  {  
+        $this->update();  
     }
 
     function resolveName() {
@@ -117,9 +123,7 @@ class Asset extends Model
         $info[$i++] = "Does this file need to be compressed?: " . ($this->NeedsCompression == true ? "True" : "False");
         $info[$i++] = "The full path name is recorded as: " . $this->Path;
 
-
         return $info;
-
     }
 
     //the function below is exclusive used by resolveQuality() method 
