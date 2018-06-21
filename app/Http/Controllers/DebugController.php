@@ -30,14 +30,14 @@ class DebugController extends PageController
         
         // $this->AssetHandler->CatalogAssets();
 
-        $obj = $this->ImageHandler->test2();
+        $obj[0] = $this->ImageHandler->test2();
 
         // return "check DB";
         // return $obj->response('jpg');
         //return $obj;
 
-        // $PageObj->Data['lines'] = $obj;
-        // return $this->ContructedPage('Pages.Playground.' . $RouteName , $PageObj);
+        $PageObj->Data['lines'] = $obj;
+        return $this->ContructedPage('Pages.Playground.' . $RouteName , $PageObj);
     }
 
     public function test() {
