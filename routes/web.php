@@ -1,11 +1,8 @@
 <?php
 
 #require
-use Intervention\Image\ImageManager;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Response;
-
-use Intervention\Image\ImageManagerStatic as Image;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,16 +24,25 @@ use Intervention\Image\ImageManagerStatic as Image;
 Route::redirect('/', '/Home', 301);
 
 Route::get(
-    '/Home{Passed_Data?}',
+    '/Home',
     ['uses' => 'PageController@index',
     'as' => 'Home']
 );
+
+Route::get(
+    '/Blog',
+    ['uses' => 'PageController@blog',
+    'as' => 'Blog']
+);
+
+Route::resource('/asset/{$Alias}','AssetController');
 
 /*
 |--------------------------------------------------------------------------
 |Debug & Sandbox Pages
 |--------------------------------------------------------------------------
 */
+
 Route::get(
     '/Playground',       
     ['uses' => 'DebugController@Playground', 
@@ -44,20 +50,14 @@ Route::get(
 );
 
 Route::get(
-    '/Playground/{Passed_Data?}',       
+    '/Playground/{view}',       
     ['uses' => 'DebugController@Playground_Subdir', 
-    'as'=>'Debugging']                 
+    'as'=>'Experiment']                 
 );
-
-Route::get(
-    '/image',       
-    ['uses' => 'DebugController@test', 
-    'as'=>'DebuggingImage']                 
-);
-
 
 Route::get('/phpinfo','DebugController@phpinfo');
 
 Route::get('/view', function () {
     return view('Pages.Viewer');
 });
+

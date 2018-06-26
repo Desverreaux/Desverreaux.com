@@ -4,42 +4,23 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use App\Helpers\HelperManager as Help;
 use Page;
 
 class PageController extends Controller
 {
+    public function index(Request $resquest) {
+        $Data = array();
+        $Data['Title'] = 'Home';
 
-
- //Universal exit point for the constuction of pages by PageController and its children
-    public function ContructedPage( $viewFileName = 'Pages.Error', $Page) {
-        $Page->info = $Page->infoString();
-        return view($viewFileName)->with('PageObj',$Page);
-    }    
-    
-    public function index($Passed_Data = NULL) {
-        $PageObj = $this->initPageObject('Home', $Passed_Data);
-
-        return $this->ContructedPage('Pages.Landing', $PageObj);
+        return view('Pages.Landing')->with('Data', $Data);
     }
 
+    public function blog(Request $resquest) {
+        $Data = array();      
+        $Data['Title']='Blog Entries';
 
-//Section for logic that is universaly applied to each page requested
-    public function initPageObject($RouteName, $URL_Parameters = NULL) {
-        Log::info("The following page has been requested: " . $RouteName);
-        
-        $PageObj = new Page($RouteName, $URL_Parameters);
-
-        require_once($_SERVER['DOCUMENT_ROOT'] .'/PHP/PathAssignments.php');
-        require_once('./PHP/ColorPallete.php');
-
-        //$PageObj->AppendData_Keyed('images',$images);
-        $PageObj->Data['images'] = $images;
-        
-        return $PageObj;
+        return view('Pages.BlogDirectory')->with('Data', $Data);
     }
-
-    
-
-
 
 }

@@ -8,15 +8,15 @@ OF TIME. MORE APPROPREATE PLACES COULD INCLUDE: REPOSITORIES (THE LARAVEL THING)
 namespace App\Handlers;
 
 use Illuminate\Support\Facades\Log;
+use App\Handlers\ImageHandler as Image;
 
-use App\Asset;
+use App\Models\Asset;
 
-class AssetHandler 
+class AssetHandler
 {
     public function __construct() {
-        
+        $this->badDirs = json_decode(file_get_contents(storage_path('Persistant/DontParse.json')));
     }
-    
 
     public function CreateAssetObj( $real_path_to_asset = NULL) {
         $NewAsset = new Asset($real_path_to_asset);
@@ -28,11 +28,13 @@ class AssetHandler
     //     return $NewAsset;
     // }
 
-
     function InsertAssetObj(Asset $obj){
         $query = Asset::where('alias', $obj->Alias)->get();
         $DuplicateCheck = count($query);
         if($DuplicateCheck < 1) {
+            if($obj->Quality == "High") {
+                $this->Optimize($obj);
+            }
             $obj->createRecord();
             if($obj->wasRecentlyCreated) { 
                 return true;
@@ -87,23 +89,23 @@ class AssetHandler
             return $output;
         }
         elseif (is_dir($path)){
-          
-            if ($handle = opendir($path)) {
+            if ($this->isAllowedDir($path)) {
+                if ($handle = opendir($path)) {
+                    while (false !== ($entry = readdir($handle))) {
             
-                while (false !== ($entry = readdir($handle))) {
-          
-                    if ($entry != "." && $entry != "..") {
-                        $newPath = $path . "/" . $entry;
-                        
-                        //this next statement and loop ensures that the final array 
-                        //returned to the view is only a one dimensional array
-                        $unpack = $this->loopThroughDir($newPath, $depth);
-                        foreach($unpack as $value) {
-                            array_push( $output , $value);
+                        if ($entry != "." && $entry != "..") {
+                            $newPath = $path . "/" . $entry;
+                            
+                            //this next statement and loop ensures that the final array 
+                            //returned to the view is only a one dimensional array
+                            $unpack = $this->loopThroughDir($newPath, $depth);
+                            foreach($unpack as $value) {
+                                array_push( $output , $value);
+                            }
                         }
                     }
+                    closedir($handle);
                 }
-                closedir($handle);
             }
         }
         else {
@@ -112,6 +114,29 @@ class AssetHandler
         return $output;
     }
 
+    function isAllowedDir($Path) {
+        foreach($this->badDirs->Directories as $dir) {
+            if($Path == $dir) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+
+
+    function Optimize(Asset $asset) {
+        $category = explode("/",$asset->MimeType)[0];
+        switch($category) {
+            case "image":
+                Image::Optimize($asset->Path);
+                break;
+            default: 
+                Log::error("ERROR attempted to optimize a file that has unknown mime type");
+                break;
+        }
+        $asset->resolveValues();
+    } 
 }
 
 

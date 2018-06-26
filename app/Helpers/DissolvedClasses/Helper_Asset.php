@@ -6,7 +6,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
 
-use App\Asset;
+use App\Models\Asset;
 
 class AssetController extends Controller
 {

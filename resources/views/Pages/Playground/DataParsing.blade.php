@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>{{$PageObj->Title}}</title>
+        <title>{{$Data['Title']}}</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -27,7 +27,7 @@
             </tr>
           </thead>
           <tbody>
-            @foreach( $PageObj->Data as $key => $value) 
+            @foreach( $Data['lines'] as $key => $value) 
             <tr>
               <td> {{$key}} </td>
               <td> {{$value}} </td>

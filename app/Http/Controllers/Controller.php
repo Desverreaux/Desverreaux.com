@@ -7,6 +7,8 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
+use \App\Helpers\HelperManager as Help;
+
 use Illuminate\Support\Facades\Log;
 
 class Controller extends BaseController
@@ -18,9 +20,10 @@ class Controller extends BaseController
 
 //switch to a static implementation 
 
-        $this->Help = app('Helpers');
+        // $this->Help = app('Helpers');
         $this->AssetHandler = app('AssetHandler');
         $this->ImageHandler = app('ImageHandler');
+        $this->Data = array(); 
         
     }
 

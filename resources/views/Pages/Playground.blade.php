@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Test page</title>
+        <title>{{$Data['Title']}}</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -18,7 +18,7 @@
 
 <div id="main" class="page">
 
-  <span style="font-size:60px">Debuging Portal</span>
+  <span style="font-size:60px;color:white">Debuging Portal</span>
 
   <div id="app" sytle="margin:0px">
     <div class="row">

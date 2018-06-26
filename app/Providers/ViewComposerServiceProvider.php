@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 class ViewComposerServiceProvider extends ServiceProvider
@@ -13,7 +14,15 @@ class ViewComposerServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        // Using class based composers...
+        View::composer(
+            '*', 'App\Http\Composers\CommonComposer'
+        );
+
+        // // Using Closure based composers...
+        // View::composer('dashboard', function ($view) {
+        //     //
+        // });
     }
 
     /**

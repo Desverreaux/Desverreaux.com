@@ -16,7 +16,8 @@ class CreateAssetsTable extends Migration
         Schema::create('assets', function (Blueprint $table) {
             // $table->increments('id')->index();
             $table->string('Item',250);
-            $table->string('Filetype',250);
+            $table->string('MimeType',250);
+            $table->string('MimeCategory',50);
             $table->integer('FileSizeBytes');
             $table->double('Version')->default('1');
             $table->string('Quality',250)->default('High');
@@ -27,6 +28,7 @@ class CreateAssetsTable extends Migration
             $table->string('SiteDomain',250)->default(config('APP_URL'));
             $table->string('AltText',250);
             $table->longText('Path');
+            $table->string('URL',250)->default('Error Parsing URL');
             $table->timestamps();
         });
     }

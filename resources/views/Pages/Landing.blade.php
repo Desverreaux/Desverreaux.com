@@ -1,23 +1,13 @@
 <!DOCTYPE html>
 <html lang="{{ config('app.locale') }}">
 <head>
-  <title>{{ $PageObj->Title }}</title>
+  <title>{{ $Data['Title'] }}</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <?php 
-      foreach($PageObj->Data as $key => $value) { 
-        $images[$key] = $value;         
-      }
-    ?>
- 
+    <link rel="stylesheet" href="{{ URL::asset('CSS/Lib/Landing.css') }}" />
+
     @include('Components.GlobalScripts')
     @include('Components.Sidebar.Head')
-    
-    @foreach( $PageObj->HeaderComponents as $Components) 
-        @include($Components)
-    @endforeach 
-
 
     <style type="text/css"> 
       body, html {
@@ -26,28 +16,23 @@
 
       /* First image (Logo. Full height) */
       .bgimg-1 {
-          background-image: url({{$images['neon']}});
+          background-image: url({{$Image['neon']}});
       }
 
       /* Second image (Portfolio) */ 
       .bgimg-2 {
-          background-image: url({{$images['orient']}});
+          background-image: url({{$Image['orient']}});
       }
 
       /* Third image (Contact) */
       .bgimg-3 {
-          background-image: url({{$images['orient2']}});
+          background-image: url({{$Image['orient2']}});
       }
     </style>
   </head>
 <body>
 
   @include('Components.Sidebar.Body')
-  
-  @foreach( $PageObj->BodyComponents as $Components) 
-          <div>@include($Components)</div>
-  @endforeach
-
 
   <div id="main" class="p-0 my-0">
   <!-- First Parallax Image with Logo Text -->
@@ -68,7 +53,7 @@
     <div class="w3-row">
       <div class="w3-col m6 w3-center w3-padding-large">
         <p><b><i class="fa fa-user w3-margin-right"></i>My Name</b></p><br>
-        <img src={{$images['self']}} class="w3-round w3-image w3-hover-opacity-off" alt="Photo of Me" width="500" height="333">
+        <img src={{$Image['self']}} class="w3-round w3-image w3-hover-opacity-off" alt="Photo of Me" width="500" height="333">
       </div>
 
       <!-- Hide this text on small devices -->
@@ -127,37 +112,37 @@
     <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
     <div class="w3-row-padding w3-center">
       <div class="w3-col m3">
-        <img src= {{$images['neon']}} style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="The mist over the mountains">
+        <img src= {{$Image['neon']}} style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="The mist over the mountains">
       </div>
 
       <div class="w3-col m3">
-        <img src={{$images['keyboard']}} style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Coffee beans">
+        <img src={{$Image['keyboard']}} style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Coffee beans">
       </div>
 
       <div class="w3-col m3">
-        <img src={{$images['orient']}} style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Bear closeup">
+        <img src={{$Image['orient']}} style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Bear closeup">
       </div>
 
       <div class="w3-col m3">
-        <img src={{$images['fox']}} style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Quiet ocean">
+        <img src={{$Image['fox']}} style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Quiet ocean">
       </div>
     </div>
 
     <div class="w3-row-padding w3-center w3-section">
       <div class="w3-col m3">
-        <img src={{$images['music']}} style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="The mist">
+        <img src={{$Image['music']}} style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="The mist">
       </div>
 
       <div class="w3-col m3">
-        <img src={{$images['stairway']}} style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="My beloved typewriter">
+        <img src={{$Image['stairway']}} style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="My beloved typewriter">
       </div>
 
       <div class="w3-col m3">
-        <img src={{$images['stairway2']}} style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Empty ghost train">
+        <img src={{$Image['stairway2']}} style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Empty ghost train">
       </div>
 
       <div class="w3-col m3">
-        <img src={{$images['rock2']}} style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Sailing">
+        <img src={{$Image['rock2']}} style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Sailing">
       </div>
       <button class="w3-button w3-padding-large w3-light-grey" style="margin-top:64px">LOAD MORE</button>
     </div>

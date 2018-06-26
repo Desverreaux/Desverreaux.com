@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
+//use App\Handlers\AssetHandlerButStatic as AssetHandler;
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -11,6 +13,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        $this->AssetHandler = app('AssetHandler');
+        $this->AssetHandler->CatalogAssets();
     }
 }
