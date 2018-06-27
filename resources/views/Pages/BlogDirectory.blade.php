@@ -14,15 +14,19 @@
 </head>
 
 <body>
-@include('Components.Sidebar.Body')
-<div id="main" class="frame">
 <div id="app" >
 
-<Test></Test>
+@include('Components.Sidebar.Body')
+
+{{-- <MySidebar></MySidebar> --}}
+
+<div id="main" class="frame">
+
+<Card></Card>
 
 
 </div>
-</div>
+</div> 
 <script src="{{ asset('js/app.js') }}"></script> 
 </body>
 </html>
