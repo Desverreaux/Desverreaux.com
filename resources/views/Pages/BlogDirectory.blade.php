@@ -9,21 +9,18 @@
   
   @include('Components.GlobalScripts')
   @include('Components.Sidebar.Head')
-  <link rel="stylesheet" href="{{ asset('CSS/Lib/Blog.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/Lib/Blog.css') }}">
 
 </head>
 
 <body>
-<div id="app" >
 
 @include('Components.Sidebar.Body')
-
-{{-- <MySidebar></MySidebar> --}}
-
 <div id="main" class="frame">
+<div id="app" >
 
-<Card></Card>
-
+<MyTable></MyTable>
 
 </div>
 </div> 

@@ -1,4 +1,5 @@
 
+
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -14,7 +15,7 @@ window.Vue = require('vue');
  */
 
 var Card = Vue.component('Card', require('./components/Card.vue'));
-var MySidebar = Vue.component('MySidebar', require('./components/Sidebar.vue'));
+Vue.component('MyTable', require('./components/Table.vue'));
 
 
 const app = new Vue({
