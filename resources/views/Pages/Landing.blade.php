@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{{ URL::asset('CSS/Lib/Landing.css') }}" />
 
     @include('Components.GlobalScripts')
-    @include('Components.Sidebar.Head')
+  @include('Components.Sidebar.Head')
 
     <style type="text/css"> 
       body, html {

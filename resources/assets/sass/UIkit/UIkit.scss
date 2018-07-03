@@ -1,11 +1,11 @@
-// Base
-@import 'Theme/_import.scss';
+
+@import 'ThemeVariables'; //After Theme/_import
+
+@import 'Theme/_import';
 
 @import 'BaseImports';
 
 // @import 'Mixins/_import.scss';
 
-@import 'node_modules/uikit/src/scss/uikit.scss';
+@import 'node_modules/uikit/src/scss/uikit'; //After BaseImports
 
-//Order of execution has been a point of confusion of sass, so if the Theme or mixins don't over write a
-//variable the order of these imports may be the cause. 

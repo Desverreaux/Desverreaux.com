@@ -1,34 +1,34 @@
-{{-- <!DOCTYPE html>
-<html lang="{{ config('app.locale') }}">
-    <head>
-    <title>{{ $PageObj->Title }}</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{$Data['Title']}}</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+  <script> window.Laravel = { csrfToken: '{{ csrf_token() }}' } </script>
+  
+  @include('Components.GlobalScripts')  //TODO remove this by incorperating sass complialation
+  @include('Components.Sidebar.Head')   //TODO remove this by implementing vue components
+  <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
-        @include('Components.GlobalScripts')
-        
-        @foreach( $PageObj->HeaderComponents as $Components) 
-            @include($Components)
-        @endforeach 
+</head>
 
-        @yield('Header')
-
-    </head>
 <body>
-    
-    @foreach( $PageObj->BodyComponents as $Components) 
-            <div>@include($Components)</div>
-    @endforeach
 
-    @yield('Body');
+@include('Components.Sidebar.Body')  //TODO remove this by implementing vue components
+<div id="main" class="frame">
+<div id="app" >
+
+<ConstructionNotice></ConstructionNotice>
+
+</div>
+</div> 
+
+
+
+<script src="{{ asset('js/app.js') }}"></script> 
+
 
 </body>
-</html> --}}
-
-{{-- SEE MVC GRAPH TO SEE WHY HAVING A HEIRACHACAL HTML TEMPLATING ENGINE IS BAD
-    
-    the reason boils down to blade expects a much higher degree of separation of 
-    logic and presentation than I am comfortable with and can wrap head around, 
-    at least at the moment.
-    
---}}
+</html>
+  

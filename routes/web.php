@@ -30,10 +30,29 @@ Route::get(
 );
 
 Route::get(
+    '/Admin',
+    ['uses' => 'PageController@index',
+    'as' => 'AdminPortal']
+);
+
+Route::get(
+    '/Bio',
+    ['uses' => 'PageController@index',
+    'as' => 'Bio']
+);
+
+Route::get(
     '/Blog',
-    ['uses' => 'PageController@blog',
+    ['uses' => 'PageController@index',
     'as' => 'Blog']
 );
+
+Route::get(
+    '/Portfolio',
+    ['uses' => 'PageController@index',
+    'as' => 'Portfolio']
+);
+
 
 Route::resource('/asset/{$Alias}','AssetController');
 
@@ -50,10 +69,18 @@ Route::get(
 );
 
 Route::get(
+    '/Playground/Faker',       
+    ['uses' => 'DebugController@FakerLibraryTest', 
+    'as'=>'Faker']                 
+);
+
+Route::get(
     '/Playground/{view}',       
     ['uses' => 'DebugController@Playground_Subdir', 
     'as'=>'Experiment']                 
 );
+
+
 
 Route::get('/phpinfo','DebugController@phpinfo');
 

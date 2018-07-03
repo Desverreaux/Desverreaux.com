@@ -19,13 +19,18 @@
 @include('Components.Sidebar.Body')
 <div id="main" class="frame">
 <div id="app" >
-{{-- <Card></Card> --}}
-<MyTable></MyTable>
+<div class="uk-container uk-container-large">
 
-{{-- <p id="var"> has not been set </p> --}}
-{{-- <button id="bton" class="uk-button uk-button-default">asdfad</button> --}}
+<ArticleCard></ArticleCard>
+<ArticleCard></ArticleCard>
+<ArticleCard></ArticleCard>
+<ArticleCard></ArticleCard>
 
 
+
+
+
+</div>
 </div>
 </div> 
 

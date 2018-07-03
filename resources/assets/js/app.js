@@ -14,8 +14,9 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-var Card = Vue.component('Card', require('./components/Card.vue'));
-Vue.component('MyTable', require('./components/Table.vue'));
+var articlecard = Vue.component('articlecard', require('./components/ArticleCard.vue'));
+var mytable = Vue.component('mytable', require('./components/mytable.vue'));
+var sidebar = Vue.component('sidebar', require('./components/sidebar.vue'));
 
 
 const app = new Vue({

@@ -7,19 +7,13 @@
   }
 
   #main {
-    background-color: #1e1e1e;
+    background: url(../../../public/Assets/images/BlueGeo_v2.png) no-repeat center fixed;
+    background-size: cover;
     padding: 48px;
     height: 100%;
     width: 100%;
     vertical-align: top;
     overflow: hidden;
-  }
-
-  body {
-    margin: 0px;
-    padding: 0px;
-    padding-right: 48px;
-    border: none;
   }
 
   .row {
@@ -41,6 +35,17 @@
   .height-fixed {
     height: 50vh;
     width: 100%;
+  }
+
+  body {
+    margin: 0px;
+    padding: 0px;
+    padding-right: 48px;
+    border: none;
+  }
+
+  p {
+      color: whitesmoke;
   }
 
   td {

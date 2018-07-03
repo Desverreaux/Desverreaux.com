@@ -7,24 +7,19 @@
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <script> window.Laravel = { csrfToken: '{{ csrf_token() }}' } </script>
   
-  @include('Components.GlobalScripts')
-  @include('Components.Sidebar.Head')
+  @include('Components.GlobalScripts')  {{--//TODO remove this by incorperating sass complialation--}}
+  @include('Components.Sidebar.Head')   {{--//TODO remove this by implementing vue components--}}
   <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.17.0/axios.js"></script>
 
 </head>
 
 <body>
 
-@include('Components.Sidebar.Body')
+@include('Components.Sidebar.Body')  {{--//TODO remove this by implementing vue components--}}
 <div id="main" class="frame">
 <div id="app" >
-{{-- <Card></Card> --}}
-<MyTable></MyTable>
 
-{{-- <p id="var"> has not been set </p> --}}
-{{-- <button id="bton" class="uk-button uk-button-default">asdfad</button> --}}
-
+<ConstructionNotice></ConstructionNotice>
 
 </div>
 </div> 

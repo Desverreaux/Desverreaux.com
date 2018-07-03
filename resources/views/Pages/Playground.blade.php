@@ -28,6 +28,10 @@
       <Card></Card>
     </div>
   </div>
+
+<a class="uk-button uk-button-default" href="{{route('Faker')}}">asdfad</a>
+
+
 </div>
 
 <script src="{{ asset('js/app.js') }}"></script> 
