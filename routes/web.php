@@ -75,6 +75,14 @@ Route::get(
 );
 
 Route::get(
+    '/Playground/Vue',       
+    ['uses' => 'DebugController@VueComponentFocus', 
+    'as'=>'Vue Component']                 
+);
+
+
+//AFTER every other Playground page
+Route::get(
     '/Playground/{view}',       
     ['uses' => 'DebugController@Playground_Subdir', 
     'as'=>'Experiment']                 

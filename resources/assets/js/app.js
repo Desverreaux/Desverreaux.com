@@ -16,7 +16,7 @@ window.Vue = require('vue');
 
 var articlecard = Vue.component('articlecard', require('./components/ArticleCard.vue'));
 var mytable = Vue.component('mytable', require('./components/mytable.vue'));
-var sidebar = Vue.component('sidebar', require('./components/sidebar.vue'));
+var Sidebar = Vue.component('Sidebar', require('./components/Sidebar.vue'));
 
 
 const app = new Vue({

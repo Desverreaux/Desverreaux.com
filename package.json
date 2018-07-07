@@ -20,11 +20,13 @@
         "popper.js": "^1.12",
         "uikit": "^3.0.0-beta.42",
         "vue": "^2.5.7",
+        "vue-svgicon": "^3.0.0",
         "vuetify": "^1.0",
         "vuex": "^3.0"
     },
     "dependencies": {
         "popper": "^1.0.1",
+        "svg.js": "^2.6.5",
         "vue-waterfall": "^1.0.6"
     }
 }

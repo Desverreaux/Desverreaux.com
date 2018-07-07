@@ -21,7 +21,7 @@ class DebugController extends PageController
 
         return view('Pages.Simple')->with('Data', $Data);
     }
-
+ 
     public function Playground(Request $request) {
         $Data = array();
         $Data['Title'] = "Debugging Environment";
@@ -44,4 +44,12 @@ class DebugController extends PageController
 
         return view('Pages.Playground.MockDataViewer')->with('Data', $Data);    
     }
+
+    public function VueComponentFocus(Request $request) {
+        $Data = array();
+        $Data['Title'] = 'test';
+
+        return view('Pages.Playground.VueComponentFocus')->with('Data', $Data);    
+    }
+
 }

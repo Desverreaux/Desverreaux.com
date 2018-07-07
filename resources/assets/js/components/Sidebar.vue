@@ -1,68 +1,112 @@
 <template>
-    <div id="mySidenav" class="sidenav .btn-group-vertical" onclick="toggleNav()">      
-        <!-- <a href="./index.php?link=Landing" class="block btn navButton">
-                <div class="container">    
-                     <img src="@{{}}" class="sideNavIcon" alt="Home"> 
-                    <span class="sideNavText"> Home </span>
-                </div>
-        </a>
-        <a href="./index.php?link=Dashboard" class="block btn navButton">
-            <div class="container">    
-                 <img src="" class="sideNavIcon" alt="Dashboard">  
-                <span class="sideNavText"> Dashboard </span>
-            </div>
-        </a>
-           <a href="./index.php?link=Bio" class="block btn navButton">
-            <div class="container">    
-                 <img src="" class="sideNavIcon" alt="Bio">  
-                <span class="sideNavText"> Bio </span>
-            </div>
-        </a>
-        <a href="./index.php?link=Portfolio" class="block btn navButton">
-            <div class="container">    
-                 <img src="" class="sideNavIcon" alt="Portfolio"> 
-                <span class="sideNavText"> Portfolio </span>
-            </div>
-        </a>
-        <a href="./Blog" class="block btn navButton">
-            <div class="container">    
-                 <img src="" class="sideNavIcon" alt="Blog"> 
-                <span class="sideNavText"> Blog </span>
-            </div>
-        </a>
-        <a href="#" class="block btn navButton noClick">
-            <div class="container">    
-                 <img src="" class="sideNavIcon" alt="Contact"> 
-                <span class="sideNavText"> Contact </span>
-            </div>
-        </a> -->
-    </div>
+<div class="Sidebar">
+    <ul class="uk-nav uk-nav-default" v-for="Link in Links" v-bind:key="Link.name" >
+        <li>
+            <a href="#" class="navButton"> 
+                <img class="" src="http://localhost/Assets/svg/icons/001-ar-glasses.svg" alt="">     
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
 </template>
 
 <script>
-var menuFunctions
+var menuFunctions;
 
 export default {
-
-data() {
+  data() {
     return {
-        image: [
-             "http://localhost/Assets/images/Sidebaricons/buildings.png",
-             "http://localhost/Assets/images/Sidebaricons/meter.png",
-             "http://localhost/Assets/images/Sidebaricons/social.png",
-             "http://localhost/Assets/images/Sidebaricons/layers.png",
-             "http://localhost/Assets/images/Sidebaricons/blog.png",
-             "http://localhost/Assets/images/Sidebaricons/mail.png"             
-        ]
-    }
-}
+      Link: {
+        image: "",
+        url: "",
+        function: "",
+        alt: "",
+        name: "link blah blah"
+      },
+
+      Links: [
+        {
+          image: "http://localhost/Assets/svg/icons/001-ar-glasses.svg",
+          url: "",
+          function: "",
+          alt: "",
+          name: "link blah blah"
+        },
+
+        {
+          image: "http://localhost/Assets/svg/icons/002-cubes.svg",
+          url: "",
+          function: "",
+          alt: "",
+          name: "link blah blah"
+        },
+
+        {
+          image: "http://localhost/Assets/svg/icons/003-bomb.svg",
+          url: "",
+          function: "",
+          alt: "",
+          name: "link blah blah"
+        },
+
+        {
+          image: "http://localhost/Assets/svg/icons/004-game-console.svg",
+          url: "",
+          function: "",
+          alt: "",
+          name: "link blah blah"
+        },
+        {
+          image: "http://localhost/Assets/svg/icons/005-database.svg",
+          url: "",
+          function: "",
+          alt: "",
+          name: "link blah blah"
+        },
+
+        {
+          image: "http://localhost/Assets/svg/icons/006-css-3.svg",
+          url: "",
+          function: "",
+          alt: "",
+          name: "link blah blah"
+        },
+
+        {
+          image: "",
+          url: "",
+          function: "",
+          alt: "",
+          name: "link blah blah"
+        }
+      ]
+    };
+  }
+
+  
 
 
 
-
-}
+};
 </script>
 
 <style>
+.Sidebar {  
+  position: fixed;
+  overflow: auto;  
+  clear: both;
+  float: left;
 
+  background-color: #101018;
+
+
+  padding: 0px;
+  margin: 0px;
+  width: 80px;
+  height: 100%;
+  
+}
 </style>
