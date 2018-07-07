@@ -86,7 +86,9 @@ export default {
     };
   }
 
-  
+  loadSvg() {
+
+  }
 
 
 

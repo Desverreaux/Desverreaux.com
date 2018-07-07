@@ -1,87 +1,114 @@
-# Project Title
+# Desverreaux.com
 
-One Paragraph of project description goes here
+This git repo holds all the code to my personal website Desverreaux.com, which I use as a growing list of things such as a portfolio and professional page, a (kinda) ftp server, and general server to play around with whatever seems neat at the time.
 
-## Getting Started
+This is the whole site aside from data that exists on some separate servers that I also manage, and this will be the case until I can get the money to buy own physical git server. This being the case I want to say that: 
+1. This is horribly insecure and from a security perspective about the only thing I could do worse is put a passwords.txt in here. I realize this and just ask that whoever is reading this not to take advantage of a developer still learning some of the ropes.
+2. If you are using this as a reference, I can't put into words how much I'd love to help out anyone who is also learning about any of this neato stuff. Feel free to contact me at the info i've provided below if you have any questions about this code base or anything you happen to be trying to make with this.  
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+### A note on its quality
 
-### Prerequisites
+I am currently a unemployeed developer fresh out of college, and this site's completion with at least a v1.0 is a self imposed requirement before I start applying to jobs. Unfortunately I only have so much money for food/rent/etc so achieving core functionality and moving closer to having a source of income again is important if I want to not starve. This is simply a note to explain the somewhat rushed quality found in this repo. However once I get to a point in life where im not constantly having to worry about being homeless, I will come back to fix and give this project all the polish it deserves. 
 
-What things you need to install the software and how to install them
 
-```
-Give examples
-```
+## Technology Stack
 
-### Installing
+The site is hosted on a docker worker node in a cluster that I rent out from Amazon Web Services. The specific image that is used to build the server can be found at docker hub under desverreaux/webserver and here's a url for it https://hub.docker.com/r/desverreaux/webserver/. The image branches off from a ubuntu server 16.04 image also found on docker hub. The rest of the web stack would be...
+*Apache2 for serving http requests
+*Php for pretty much all the backend code 
+*Laravel as a back end framework
+*Composer & Npm as back end and front end package managers 
+*Vue as the a front end framework 
+*Sass as a Asset Compiler and preprocessor 
+*Others that im sure im forgetting 
 
-A step by step series of examples that tell you how to get a development env running
+### Deployment 
 
-Say what the step will be
+This process could be simplified by formatting a docker build script that would do this whole section for you, and I will write this eventually however to have a functional site this is optional and I have decided to defer it for now. 
 
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
+To create the docker container that runs the server use "docker run" with the following arguments
 
 ```
-Give an example
+docker run 
+    -it
+	-p 80:80 -p 10000:10000 
+	-v d:/Serverdata/Desverreaux.com/Filesystem:/var/www/Desverreaux.com/ 
+	--name Webserver 
+	-h Webserver 
+	-d desverreaux/webserver:latest 
+	tail -f /dev/null
+
 ```
 
-### And coding style tests
+Go to /var/www/Desverreaux.com/ and clone this repo to that directory 
 
-Explain what these tests test and why
 
 ```
-Give an example
+cd /var/www/Desverreaux.com/
+git clone https://github.com/Desverreaux/Desverreaux.com.git
 ```
 
-## Deployment
+Initialize npm and composer by running
 
-Add additional notes about how to deploy this on a live system
+```
+npm install 
+composer install
+```
 
-## Built With
+Install the following packages with apt-get
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+*alien
+*libmagicwand-dev
+*imagemagick
+*jpegoptim
+*optipng
+*pngquant
+*gifsicle
 
-## Contributing
+and these with npm install 
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+*svgo
 
-## Versioning
+You will need to create this new environments .env file for laravel with 
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+```
+cp /var/www/Desverreaux.com/.env.example /var/www/Desverreaux.com/.env
+```
+
+as well as create an application key for laravel with 
+
+```
+php artisan key:generate
+```
+
+To use the scripts that optimize the images in the asset folder you will need to install the php extension for the library used with 
+
+```
+Touch /etc/php/7.2/mods-available/imagick.ini
+cat extension=imagick.so > /etc/php/7.2/mods-available/imagick.ini
+ln -s /etc/php/7.2/mods-available/imagick.ini /etc/php/7.2/apache2/conf.d/20-imagick.ini
+```
+
+Finally you should be able to run the following to start all the services needed
+
+```
+sh startServices.sh
+```
+
+As of now this is all I have documented. 
+
+
+## Running the Tests
+
+As i personally dislike tests, along with every other developer I assume, and they are not needed for base functionality test are currently deferred to a later date
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **John Norris Desverreaux** - Email:john@desverreaux.com
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+I would also provide a link to my website but I'm REAL confused on how you got here without knowing what the site is  
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc

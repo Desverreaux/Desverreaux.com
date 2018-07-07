@@ -12525,85 +12525,9 @@ exports.push([module.i, "\n.Sidebar {  \r\n  position: fixed;\r\n  overflow: aut
 
 /***/ }),
 /* 24 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-var menuFunctions;
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  data: function data() {
-    return {
-      Link: {
-        image: "",
-        url: "",
-        function: "",
-        alt: "",
-        name: "link blah blah"
-      },
-
-      Links: [{
-        image: "http://localhost/Assets/svg/icons/001-ar-glasses.svg",
-        url: "",
-        function: "",
-        alt: "",
-        name: "link blah blah"
-      }, {
-        image: "http://localhost/Assets/svg/icons/002-cubes.svg",
-        url: "",
-        function: "",
-        alt: "",
-        name: "link blah blah"
-      }, {
-        image: "http://localhost/Assets/svg/icons/003-bomb.svg",
-        url: "",
-        function: "",
-        alt: "",
-        name: "link blah blah"
-      }, {
-        image: "http://localhost/Assets/svg/icons/004-game-console.svg",
-        url: "",
-        function: "",
-        alt: "",
-        name: "link blah blah"
-      }, {
-        image: "http://localhost/Assets/svg/icons/005-database.svg",
-        url: "",
-        function: "",
-        alt: "",
-        name: "link blah blah"
-      }, {
-        image: "http://localhost/Assets/svg/icons/006-css-3.svg",
-        url: "",
-        function: "",
-        alt: "",
-        name: "link blah blah"
-      }, {
-        image: "",
-        url: "",
-        function: "",
-        alt: "",
-        name: "link blah blah"
-      }]
-    };
-  }
-});
+throw new Error("Module build failed: SyntaxError: D:/ServerData/Desverreaux.com/fileSystem/resources/assets/js/components/Sidebar.vue: Unexpected token, expected , (89:2)\n\n\u001b[0m \u001b[90m 87 | \u001b[39m  }\n \u001b[90m 88 | \u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 89 | \u001b[39m  loadSvg() {\n \u001b[90m    | \u001b[39m  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 90 | \u001b[39m\n \u001b[90m 91 | \u001b[39m  }\n \u001b[90m 92 | \u001b[39m\u001b[0m\n");
 
 /***/ }),
 /* 25 */
