@@ -13,6 +13,6 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(AssetSeeder::class);     
-        $this->call(ArticleSeeder::class);
+        // $this->call(ArticleSeeder::class); TODO this is just straight up broken
     }
 }

@@ -2,8 +2,8 @@
 <div class="Sidebar">
     <ul class="uk-nav uk-nav-default" v-for="Link in Links" v-bind:key="Link.name" >
         <li>
-            <a href="#" class="navButton"> 
-                <img class="" src="http://localhost/Assets/svg/icons/001-ar-glasses.svg" alt="">     
+            <a v-bind:href="Link.url" class=""> 
+              <div v-bind:id="Link.id"></div>
             </a>
         </li>
     </ul>
@@ -20,89 +20,118 @@ export default {
   data() {
     return {
       Link: {
+        id: "",
         image: "",
         url: "",
         function: "",
         alt: "",
-        name: "link blah blah"
       },
 
       Links: [
         {
-          image: "http://localhost/Assets/svg/icons/001-ar-glasses.svg",
-          url: "",
+          id: "menu",
+          image: "http://localhost/Assets/svg/icons/ar-glasses.svg",
+          url:"",
           function: "",
           alt: "",
-          name: "link blah blah"
+        },
+        {
+          id: "home",
+          image: "http://localhost/Assets/svg/icons/ar-glasses.svg",
+          url:"http://localhost/Home",
+          function: "",
+          alt: "",
+        },
+        {
+          id: "admin",
+          image: "http://localhost/Assets/svg/icons/cubes.svg",
+          url:"http://localhost/Admin",
+          function: "",
+          alt: "",
         },
 
         {
-          image: "http://localhost/Assets/svg/icons/002-cubes.svg",
-          url: "",
+          id: "bio",
+          image: "http://localhost/Assets/svg/icons/bomb.svg",
+          url:"http://localhost/Bio",
           function: "",
           alt: "",
-          name: "link blah blah"
         },
 
         {
-          image: "http://localhost/Assets/svg/icons/003-bomb.svg",
-          url: "",
+          id: "blog",
+          image: "http://localhost/Assets/svg/icons/game-console.svg",
+          url:"http://localhost/Blog",
           function: "",
           alt: "",
-          name: "link blah blah"
-        },
-
-        {
-          image: "http://localhost/Assets/svg/icons/004-game-console.svg",
-          url: "",
-          function: "",
-          alt: "",
-          name: "link blah blah"
         },
         {
-          image: "http://localhost/Assets/svg/icons/005-database.svg",
-          url: "",
+          id: "portfolio",
+          image: "http://localhost/Assets/svg/icons/database.svg",
+          url:"http://localhost/Portfolio",
           function: "",
           alt: "",
-          name: "link blah blah"
         },
-
         {
-          image: "http://localhost/Assets/svg/icons/006-css-3.svg",
-          url: "",
+          id: "playground",
+          image: "http://localhost/Assets/svg/icons/database.svg",
+          url:"http://localhost/Playground",
           function: "",
           alt: "",
-          name: "link blah blah"
         },
-
         {
-          image: "",
-          url: "",
+          id: "contact",
+          image: "http://localhost/Assets/svg/icons/css-3.svg",
+          url:"http://localhost/Contact",
           function: "",
           alt: "",
-          name: "link blah blah"
         }
-      ]
+      ],
+      baseShape: "",
     };
-  }
+  },
 
-  loadSvg() {
+  mounted: function() {
+    var ref = this;
+      for (let link of ref.Links) {
+        ref.LoadSvg(link.image, link.id);
+      }
+    },
 
-  }
+
+  methods: {
+    LoadSvg(address, id) {
+      var ref = this;
+      
+      axios.get(address)
+      .then(function (response) {
+        ref.DrawSvg(80, String(response.data), id);
+      })
+      .catch(function (error) {
+      });
+      
+      },
+
+    DrawSvg(IconSize, svgdata, id) {
+      var draw = SVG(id).size(IconSize, IconSize);
+    
+      draw.svg(svgdata);
+    }
 
 
-
+  },
+  
 };
 </script>
 
 <style>
 .Sidebar {  
   position: fixed;
-  overflow: auto;  
+  /* overflow: auto; */
   clear: both;
   float: left;
 
-  background-color: #101018;
+  background-color: #101015;
 
 
   padding: 0px;

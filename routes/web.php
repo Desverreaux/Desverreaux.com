@@ -54,6 +54,35 @@ Route::get(
 );
 
 
+/*
+|--------------------------------------------------------------------------
+|Viewer Pages
+|--------------------------------------------------------------------------
+*/
+
+
+Route::get(
+    '/Viewer',
+    ['uses' => 'DataViewerController@Directory',
+    'as' => 'Viewer']
+);
+
+Route::get(
+    '/Viewer/{view}',
+    ['uses' => 'DataViewerController@index',
+    'as' => 'Viewer']
+);
+
+Route::get('/view', function () {
+    return view('Pages.Viewer');
+});
+
+/*
+|--------------------------------------------------------------------------
+|API routes
+|--------------------------------------------------------------------------
+*/
+
 Route::resource('/asset/{$Alias}','AssetController');
 
 /*
@@ -66,6 +95,12 @@ Route::get(
     '/Playground',       
     ['uses' => 'DebugController@Playground', 
     'as'=>'Debugging']                 
+);
+
+Route::get(
+    '/Playground/Data/testAssetSeeder',       
+    ['uses' => 'DebugController@testAssetSeeder', 
+    'as'=>'testAssetSeeder']                 
 );
 
 Route::get(
@@ -92,7 +127,5 @@ Route::get(
 
 Route::get('/phpinfo','DebugController@phpinfo');
 
-Route::get('/view', function () {
-    return view('Pages.Viewer');
-});
+
 

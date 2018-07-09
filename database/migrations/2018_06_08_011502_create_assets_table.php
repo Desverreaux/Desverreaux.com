@@ -28,7 +28,7 @@ class CreateAssetsTable extends Migration
             $table->string('SiteDomain',250)->default(config('APP_URL'));
             $table->string('AltText',250);
             $table->longText('Path');
-            $table->string('URL',250)->default('Error Parsing URL');
+            $table->string('URL',2500)->default('Error Parsing URL');
             $table->timestamps();
         });
     }

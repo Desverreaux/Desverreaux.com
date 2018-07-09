@@ -12,8 +12,7 @@ class PageController extends Controller
     public function index(Request $request) {
         $pathString = $request->path();
         $path = explode("/", $pathString);
-        $Destination = $path[count($path) - 1];
-        switch($Destination) {
+        switch($path[0]) {
             case "Admin":
                 return $this->Admin($request);
                 break;
@@ -23,11 +22,11 @@ class PageController extends Controller
             case "Blog":
                 return $this->Blog($request);
                 break;
-            case "Portfolio":
-                return $this->Portfolio($request);
-                break;
             case "Home":
                 return $this->Home($request);
+                break;
+            case "Portfolio":
+                return $this->Portfolio($request);
                 break;
             default: 
                 return $this->PageNotFound($request);
@@ -57,10 +56,6 @@ class PageController extends Controller
         return view('Errors.UnderConstruction')->with('Data', $Data);
     }
 
-    public function Portfolio(Request $request) {
-        return $this->ComingSoon($request);
-    }
-
     public function Home(Request $request) {
         $Data = array();
         $Data['Title'] = 'Home';
@@ -68,4 +63,7 @@ class PageController extends Controller
         return view('Pages.Landing')->with('Data', $Data);
     }
 
+    public function Portfolio(Request $request) {
+        return $this->ComingSoon($request);
+    }
 }

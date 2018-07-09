@@ -138,10 +138,13 @@ class Asset extends Model
         //     . $SplitPath['Filename']
         //     . $SplitPath['Extension'];
 
-        $arr = explode("/",$this->Path);
+        $arr = explode("\\",$this->Path); //TODO the delimiter here may be dependant on the environment, test this
+        
         $arr = array_splice($arr,5);
         $pathFromPublic = implode("/",$arr);
         $this->URL = env('APP_URL') . "/" . ($pathFromPublic);
+
+
     }
 
 

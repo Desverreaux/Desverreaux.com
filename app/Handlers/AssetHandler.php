@@ -15,7 +15,7 @@ use App\Models\Asset;
 class AssetHandler
 {
     public function __construct() {
-        $this->badDirs = json_decode(file_get_contents(storage_path('Persistant/DontParse.json')));
+        $this->badDirs = $this->getInvalidPaths();
     }
 
     public function CreateAssetObj( $real_path_to_asset = NULL) {
@@ -63,6 +63,8 @@ class AssetHandler
     function CatalogAssets($PathToCatalog = NULL) {
         // The Placement of this functionality within the architecture
         // is a problem and should be refactored 
+        $this->getInvalidPaths();
+
         $PathToCatalog = ($PathToCatalog == NULL ? public_path('Assets') : $PathToCatalog);
 
         $PathArray = $this->loopThroughDir($PathToCatalog);
@@ -89,7 +91,7 @@ class AssetHandler
             return $output;
         }
         elseif (is_dir($path)){
-            if ($this->isAllowedDir($path)) {
+            if ($this->isAllowedPath($path)) {
                 if ($handle = opendir($path)) {
                     while (false !== ($entry = readdir($handle))) {
             
@@ -114,8 +116,8 @@ class AssetHandler
         return $output;
     }
 
-    function isAllowedDir($Path) {
-        foreach($this->badDirs->Directories as $dir) {
+    function isAllowedPath($Path) {
+        foreach($this->badDirs as $dir) {
             if($Path == $dir) {
                 return false;
             }
@@ -136,7 +138,14 @@ class AssetHandler
                 break;
         }
         $asset->resolveValues();
-    } 
+    }
+    
+    function getInvalidPaths() {
+        $content = file_get_contents(storage_path('Persistant/DontParse.json'));
+        $parsed = json_decode($content, true);
+        return $parsed['Directories'];
+    }
+
 }
 
 

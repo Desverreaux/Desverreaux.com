@@ -52,4 +52,23 @@ class DebugController extends PageController
         return view('Pages.Playground.VueComponentFocus')->with('Data', $Data);    
     }
 
+    public function testAssetSeeder(Request $request) {
+        $Data = array();
+        $Data['Title'] = 'Asset Seed test';
+
+        $this->AssetHandler = app('AssetHandler');
+
+        $Data['lines'] = array( "1"=>"data",
+                                "2"=>"data",
+                                "3"=>"data",
+                                "4"=>"data",
+                                "5"=>"data"
+        );
+
+
+        return view('Pages.Playground.DataParsing')->with('Data', $Data);    
+    }
+
+
+
 }

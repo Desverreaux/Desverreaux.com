@@ -7,10 +7,8 @@
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <script> window.Laravel = { csrfToken: '{{ csrf_token() }}' } </script>
   
-  @include('Components.GlobalScripts')
   @include('Components.Sidebar.Head')
   <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.17.0/axios.js"></script>
 
 </head>
 

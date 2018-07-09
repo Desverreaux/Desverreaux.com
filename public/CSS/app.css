@@ -101,19 +101,12 @@
 
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  vertical-align: top;
-  height: 100%;
-  width: 100%;
+  min-height: 100%;
 }
 
 #main {
-  background: url(/images/BlueGeo_v2.png?6be87e2f40f01e3aafc3cb1484396445) no-repeat center fixed;
-  background-size: cover;
+  margin-left: 80px;
   padding: 48px;
-  height: 100%;
-  width: 100%;
-  vertical-align: top;
-  overflow: hidden;
 }
 
 .row {
@@ -129,14 +122,6 @@
   margin: 0px;
 }
 
-.frame {
-  height: 100%;
-  width: 100%;
-  min-height: 100vh;
-  vertical-align: top;
-  overflow: inherit;
-}
-
 .height-fixed {
   height: 50vh;
   width: 100%;
@@ -145,8 +130,9 @@
 body {
   margin: 0px;
   padding: 0px;
-  padding-right: 48px;
-  border: none;
+  min-width: 100%;
+  min-height: 100%;
+  background-color: #5f5f5f;
 }
 
 p {

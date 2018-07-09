@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{ URL::asset('CSS/Lib/Landing.css') }}" />
 
-    @include('Components.GlobalScripts')
   @include('Components.Sidebar.Head')
 
     <style type="text/css"> 
