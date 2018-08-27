@@ -22,15 +22,21 @@ window.Popper = require('popper.js/dist/umd/popper.js').default;
 
 require('./Libraries/Development/svg.js');
 
+
 /** jQuery
  * --------------------------------------------------------------------------
  * A utility library that simplifies the interaction with the DOM  
  * --------------------------------------------------------------------------
  */
 
-try {
-    window.$ = window.jQuery = require('jquery');
-} catch (e) {}
+
+global.jQuery = require('jquery');
+var $ = global.jQuery;
+window.$ = $;
+
+// try {
+//     window.$ = window.jQuery = require('jquery');
+// } catch (e) {}
 
 /** Axios
  * --------------------------------------------------------------------------
@@ -54,6 +60,19 @@ if (token) {
 } else {
     console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
 }
+
+
+/** Raphael
+ * --------------------------------------------------------------------------
+ * Vector graphic javascript library 
+ * --------------------------------------------------------------------------
+ */
+
+global.Rapheal = require('raphael');
+var Rapheal = global.Rapheal;
+window.Rapheal = Rapheal;
+
+
 
 
 //===========================================================================

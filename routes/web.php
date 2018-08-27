@@ -29,11 +29,9 @@ Route::get(
     'as' => 'Home']
 );
 
-Route::get(
-    '/Admin',
-    ['uses' => 'PageController@index',
-    'as' => 'AdminPortal']
-);
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
 
 Route::get(
     '/Bio',

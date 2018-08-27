@@ -7,6 +7,12 @@
  */
 import './bootstrap';
 import UIkit from 'uikit';
+
+//External Vue Components
+import { Carousel, Slide } from 'vue-carousel';
+
+
+
 // UIkit.use(Icons);
 
 
@@ -19,14 +25,34 @@ window.Vue = require('vue');
  */
 
 var articlecard = Vue.component('articlecard', require('./components/ArticleCard.vue'));
-var gallerycard = Vue.component('gallerycard', require('./components/GalleryCard.vue'));
 var componentcard = Vue.component('componentcard', require('./components/ComponentCard.vue'));
+var carousel = Vue.component('UKCarousel', require('./components/carousel.vue'));
+var carouselItem = Vue.component('UKCarouselElement', require('./components/carouselItem.vue'));
+var gallerycard = Vue.component('gallerycard', require('./components/GalleryCard.vue'));
 var mytable = Vue.component('mytable', require('./components/mytable.vue'));
-var Sidebar = Vue.component('Sidebar', require('./components/Sidebar.vue'));
+var Sidebar = Vue.component('Sidebar', require('./components/Sidebar.vue')); // TODO fix the capitalization of the variable throughout the code base
+var sidebarlink = Vue.component('sidebarlink', require('./components/SidebarLink.vue'));
+
+var test = Vue.component('test', require('./components/Test.vue'));
+
+// Landing Page -----------------------------------------------------------------------------------
+var landing = Vue.component('landing', require('./components/PageSpecific/Landing/Content.vue'));
+var splash = Vue.component('splash', require('./components/Splash.vue'));
+// var parentcomponent = Vue.component('parentcomponent', require('./components/ParentComponent.vue'));
 
 
 const app = new Vue({
     el: '#app',
 
-    //components: {alias: reference},
+    // data: {'propvar': null},
+    // created: function() {
+    //     if (typeof(propvar) != "undefined") {
+    //         this.propvar = propvar;
+    //     }
+    // }
+    components: {
+        'Carousel': Carousel,
+        'Slide': Slide,
+    },
 });
+

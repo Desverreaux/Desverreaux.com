@@ -32,7 +32,7 @@ class FileMapper
         // $cwd->read();
         // $output[0] = $cwd->path;
 
-        $output = FileMapper::loopThroughDir("D:\ServerData\Desverreaux.com\fileSystem\public\Assets");
+        $output = FileMapper::loopThroughDir("D:\ServerData\Desverreaux.com\Webserver\public\Assets");
        
 
         //$relevantFile = public_path('Assets/images/neon(high-res).jpg');

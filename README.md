@@ -32,7 +32,7 @@ To create the docker container that runs the server use "docker run" with the fo
 docker run 
     -it
 	-p 80:80 -p 10000:10000 
-	-v d:/Serverdata/Desverreaux.com/Filesystem:/var/www/Desverreaux.com/ 
+	-v d:/Serverdata/Desverreaux.com/Webserver:/var/www/Desverreaux.com/ 
 	--name Webserver 
 	-h Webserver 
 	-d desverreaux/webserver:latest 

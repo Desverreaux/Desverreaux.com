@@ -1,12 +1,12 @@
 <template>
-<div class="Sidebar">
-    <ul class="uk-nav uk-nav-default" v-for="Link in Links" v-bind:key="Link.name" >
+<div class="Sidebar" v-on:mouseover="overNav" v-on:mouseleave="leaveNav">
+  <div class="verticalPadding"> 
+    <ul class="Link"  v-for="Link in Links" v-bind:key="Link.id" >
         <li>
-            <a v-bind:href="Link.url" class=""> 
-              <div v-bind:id="Link.id"></div>
-            </a>
+          <sidebarlink :link="Link" :visible="Extended" ></sidebarlink>
         </li>
     </ul>
+  </div>
 </div>
 
 
@@ -14,109 +14,145 @@
 </template>
 
 <script>
-var menuFunctions;
 
 export default {
+
   data() {
     return {
-      Link: {
-        id: "",
-        image: "",
-        url: "",
-        function: "",
-        alt: "",
-      },
-
       Links: [
         {
           id: "menu",
-          image: "http://localhost/Assets/svg/icons/ar-glasses.svg",
+          name: "menu",
+          image: "http://localhost/Assets/svg/icons/menu.svg",
           url:"",
-          function: "",
+          // visible: false,
+          // function: "",
           alt: "",
         },
         {
-          id: "home",
-          image: "http://localhost/Assets/svg/icons/ar-glasses.svg",
+          id: "house",
+          name: "Home",
+          image: "http://localhost/Assets/svg/icons/house.svg",
           url:"http://localhost/Home",
-          function: "",
+          // visible: false,
+          // function: "",
           alt: "",
         },
         {
-          id: "admin",
-          image: "http://localhost/Assets/svg/icons/cubes.svg",
+          id: "bar-chart",
+          name: "Dev Ops",
+          image: "http://localhost/Assets/svg/icons/bar-chart.svg",
           url:"http://localhost/Admin",
-          function: "",
+          // visible: false,
+          // function: "",
           alt: "",
         },
 
         {
-          id: "bio",
-          image: "http://localhost/Assets/svg/icons/bomb.svg",
+          id: "user",
+          name: "Biography",
+          image: "http://localhost/Assets/svg/icons/user.svg",
           url:"http://localhost/Bio",
-          function: "",
+          // visible: false,
+          // function: "",
           alt: "",
         },
 
         {
           id: "blog",
-          image: "http://localhost/Assets/svg/icons/game-console.svg",
+          name: "Blog",
+          image: "http://localhost/Assets/svg/icons/blog.svg",
           url:"http://localhost/Blog",
-          function: "",
+          // visible: false,
+          // function: "",
           alt: "",
         },
         {
-          id: "portfolio",
-          image: "http://localhost/Assets/svg/icons/database.svg",
+          id: "cubes",
+          name: "Interactive",
+          image: "http://localhost/Assets/svg/icons/cubes.svg",
           url:"http://localhost/Portfolio",
-          function: "",
+          // visible: false,
+          // function: "",
           alt: "",
         },
         {
-          id: "playground",
-          image: "http://localhost/Assets/svg/icons/database.svg",
+          id: "edit",
+          name: "Resume",
+          image: "http://localhost/Assets/svg/icons/edit.svg",
           url:"http://localhost/Playground",
-          function: "",
+          // visible: false,
+          // function: "",
           alt: "",
         },
         {
-          id: "contact",
-          image: "http://localhost/Assets/svg/icons/css-3.svg",
+          id: "envelope",
+          name: "Contact",
+          image: "http://localhost/Assets/svg/icons/envelope.svg",
           url:"http://localhost/Contact",
-          function: "",
+          // visible: false,
+          // function: "",
           alt: "",
         }
       ],
-      baseShape: "",
-    };
-  },
+
+      Extended: false
+
+      }
+
+    },
+  
 
   mounted: function() {
-    var ref = this;
-      for (let link of ref.Links) {
-        ref.LoadSvg(link.image, link.id);
-      }
+  
+  
     },
 
 
   methods: {
-    LoadSvg(address, id) {
-      var ref = this;
+    // LoadSvg(address, id) {
+    //   var ref = this;
       
-      axios.get(address)
-      .then(function (response) {
-        ref.DrawSvg(80, String(response.data), id);
-      })
-      .catch(function (error) {
-      });
+    //   axios.get(address)
+    //   .then(function (response) {
+    //     ref.DrawSvg(40, String(response.data), id);
+    //   })
+    //   .catch(function (error) {
+    //   });
       
-      },
+    //   },
 
-    DrawSvg(IconSize, svgdata, id) {
-      var draw = SVG(id).size(IconSize, IconSize);
+    // DrawSvg(IconSize, svgdata, id) {
+    //   var draw = SVG(id).size(IconSize, IconSize);
     
-      draw.svg(svgdata);
-    }
+    //   draw.svg(svgdata);
+    
+    //   draw.attr('fill','#fff');
+
+    // },
+
+    overNav() {
+      this.Extended = true;
+      $(".Sidebar").width(400);
+    },
+
+    leaveNav() {
+      this.Extended = false;
+      $(".Sidebar").width(80);
+    },
+
+    // overLink(link) {  
+    //   $(link.target).closest(".Link1").addClass("focusLink");
+    //   $(link.target).find(".MenuText1").addClass("focusMenuText1");
+
+    //   console.log($(link.target));
+
+    // },
+
+    // leaveLink(link) {
+    //   $(link.target).closest(".Link1").removeClass("focusLink");
+    //   $(link.target).find(".MenuText1").removeClass("focusMenuText1");
+    // }
 
 
   },
@@ -131,13 +167,78 @@ export default {
   clear: both;
   float: left;
 
-  background-color: #101015;
-
-
   padding: 0px;
   margin: 0px;
   width: 80px;
   height: 100%;
+  background-color: #101015;
+
+}
+
+.Link {
+    /* background-color: gray; */
+
+    list-style-type: none;
+    padding: 0px;
+    margin: 10 10px;
+
+}
+
+.verticalPadding {
+  padding: 60px 0px;
+}
+
+.focusLink {
+  background-color: whitesmoke;
+}
+
+
+.MenuBlock2 {
+    /* background-color: blue; */
+
+  display: flex;
+  width: 80px;
+  height: 80px;
+  overflow: visible;
+}
+
+
+
+.iconBlock3 {
   
+
+  min-width: 40px;
+  min-height: 40px;
+  max-height: 40px;
+
+  position: relative;
+  top: 25%;
+  left: 25%;
+
+
+}
+
+.SubBlock3 {
+  /* background-color: indigo; */
+
+  min-width:320px;
+  height:80px;
+
+  position: relative;
+  left: 40px;
+
+  display: flex;
+  justify-content: flex-start; /* align horizontal */
+  align-items: center; /* align vertical */
+}
+
+.MenuText1 {
+  color: whitesmoke;
+  text-decoration: none;
+}
+
+.focusMenuText1 {
+  color: black; 
+ 
 }
 </style>

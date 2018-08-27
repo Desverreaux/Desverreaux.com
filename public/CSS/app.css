@@ -100,12 +100,27 @@
 }
 
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: Raleway, Roboto, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   min-height: 100%;
 }
 
 #main {
   margin-left: 80px;
+}
+
+#splashImage {
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  padding: 1px;
+  height: 100vh;
+  z-index: 10;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.frame {
   padding: 48px;
 }
 
@@ -131,16 +146,64 @@ body {
   margin: 0px;
   padding: 0px;
   min-width: 100%;
-  min-height: 100%;
-  background-color: #5f5f5f;
+  min-height: 100vh;
+  background-color: #000000;
+  color: whitesmoke;
 }
 
 p {
+  font-family: global-font-family;
   color: whitesmoke;
 }
 
 td {
   color: white;
+}
+
+a {
+  text-decoration: none !important;
+  color: #ffffff;
+}
+
+/* Create a Parallax Effect */
+
+.bgimg-1,
+.bgimg-2,
+.bgimg-3 {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Second image (Portfolio) */
+
+.bgimg-2 {
+  min-height: 400px;
+}
+
+/* Third image (Contact) */
+
+.bgimg-3 {
+  min-height: 400px;
+}
+
+.w3-wide {
+  letter-spacing: 10px;
+}
+
+.w3-hover-opacity {
+  cursor: pointer;
+}
+
+/* Turn off parallax scrolling for tablets and phones */
+
+@media only screen and (max-device-width: 1024px) {
+  .bgimg-1,
+  .bgimg-2,
+  .bgimg-3 {
+    background-attachment: scroll;
+  }
 }
 
 /* ========================================================================

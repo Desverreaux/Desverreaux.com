@@ -9,13 +9,18 @@
   <script> window.Laravel = { csrfToken: '{{ csrf_token() }}' } </script>
   
   <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+
+
 </head>
 
 <body>
 
+
+
 <div id="app" >
 
 <Sidebar></Sidebar>
+
 
 <div id="main" class="frame">
 
@@ -23,7 +28,15 @@
 </div>
 </div> 
 
+
+
+
 <script src="{{ asset('js/app.js') }}"></script> 
+
+<script>
+
+  
+</script>
 
 </body>
 </html>

@@ -10,9 +10,18 @@ class DatabaseSeeder extends Seeder
      *
      * @return void
      */
+
+    protected $seedersPath;
+
     public function run()
     {
-        $this->call(AssetSeeder::class);     
-        // $this->call(ArticleSeeder::class); TODO this is just straight up broken
+        $this->seedersPath = database_path('seeds').'/';
+        $this->seed('AssetSeeder');
+        $this->seed('CategoriesTableSeeder');
+        $this->seed('UsersTableSeeder');
+        $this->seed('PostsTableSeeder');
+        $this->seed('PagesTableSeeder');
+        $this->seed('TranslationsTableSeeder');
+        $this->seed('PermissionRoleTableSeeder');
     }
 }
