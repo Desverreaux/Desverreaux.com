@@ -7,23 +7,23 @@ this vue component is mainly a wrapper for the carousel component that is includ
 
     <ul class="uk-slider-items uk-grid">
       <li class="uk-width-3-4">
-        <carouselItemlocal></carouselItemlocal>
+        <ukcarouselelement></ukcarouselelement>
       </li>
       
       <li class="uk-width-3-4">
-        <carouselItemlocal></carouselItemlocal>
+        <ukcarouselelement></ukcarouselelement>
       </li>
       
       <li class="uk-width-3-4">
-        <carouselItemlocal></carouselItemlocal>
+        <ukcarouselelement></ukcarouselelement>
       </li>
       
       <li class="uk-width-3-4">
-        <carouselItemlocal></carouselItemlocal>
+        <ukcarouselelement></ukcarouselelement>
       </li>
       
       <li class="uk-width-3-4">
-        <carouselItemlocal></carouselItemlocal>
+        <ukcarouselelement></ukcarouselelement>
       </li>
     </ul>
 
@@ -34,24 +34,21 @@ this vue component is mainly a wrapper for the carousel component that is includ
 </template>
 
 <script>
-  export default {
-    props: {},
+export default {
+  props: {},
 
-    data() {
-      return {};
-    },
+  data() {
+    return {};
+  },
 
-    mounted: function () {},
+  mounted: function() {},
 
-    methods: {}
-  };
-
+  methods: {}
+};
 </script>
 
 <style scoped>
-
 #carousel {
   min-height: 600px;
 }
-
 </style>

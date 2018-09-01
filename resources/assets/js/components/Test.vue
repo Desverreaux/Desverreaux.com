@@ -1,7 +1,6 @@
 <template>
 <div class="wrapper">
-  
-  <carousel :per-page="1"  mouse-drag="false">
+    <carousel :per-page="1" :navigate-to="someLocalProperty" mouse-drag="false">
     <slide>
       Slide 1 Content
     </slide>
@@ -9,7 +8,6 @@
       Slide 2 Content
     </slide>
   </carousel>
-
 </div>    
 </template>
 
@@ -30,16 +28,9 @@ props: {
   },
 
   mounted () {
-    setTimeout(() => {
-      this.list = [
-        { backgroundColor: '#3f51b5', width: '100%', height: '100%' },
-        { backgroundColor: '#eee', width: '100%', height: '100%' },
-        { backgroundColor: '#f44336', width: '100%', height: '100%' },
-      ]
-    }, 1000)
-  },
 
-};
+  }
+}
 </script>
 
 <style scoped>

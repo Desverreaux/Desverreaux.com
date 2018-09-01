@@ -20,11 +20,20 @@
 
 <div id="main">
 
-<carousellocal></carousellocal>
+<UkCarousel></UkCarousel>
 
 <div style="padding: 100px;"></div>
 
-<test></test>
+<Slider></Slider>
+
+{{-- <carousel :per-page="1" :mouse-drag="0">
+    <slide>
+        <img src="Assets/images/placeholder.jpg" alt="">
+    </slide>
+    <slide>
+        <img src="Assets/images/placeholder.jpg" alt="">
+    </slide>
+</carousel> --}}
 
 <div class="frame">
 

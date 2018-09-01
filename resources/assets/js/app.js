@@ -8,15 +8,20 @@
 import './bootstrap';
 import UIkit from 'uikit';
 
+
+
 //External Vue Components
-import { Carousel, Slide } from 'vue-carousel';
-
-
 
 // UIkit.use(Icons);
 
 
 window.Vue = require('vue');
+
+
+
+import VueCarousel from 'vue-carousel';
+
+Vue.use(VueCarousel);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -24,16 +29,25 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-var articlecard = Vue.component('articlecard', require('./components/ArticleCard.vue'));
-var componentcard = Vue.component('componentcard', require('./components/ComponentCard.vue'));
-var carousel = Vue.component('UKCarousel', require('./components/carousel.vue'));
-var carouselItem = Vue.component('UKCarouselElement', require('./components/carouselItem.vue'));
-var gallerycard = Vue.component('gallerycard', require('./components/GalleryCard.vue'));
-var mytable = Vue.component('mytable', require('./components/mytable.vue'));
-var Sidebar = Vue.component('Sidebar', require('./components/Sidebar.vue')); // TODO fix the capitalization of the variable throughout the code base
-var sidebarlink = Vue.component('sidebarlink', require('./components/SidebarLink.vue'));
+//NAMING CONVENTIONS NOTE: both the component reference and the filename need to be ALL LOWERCASE because of issues with exporting to ubuntu
+//  as well as different browser environments interpreting the variable declarations wrong. 
+
+// [dev.]{component-name}.vue
+
+
+var ukcarousel = Vue.component('ukcarousel', require('./components/dev.ukcarousel.vue'));
+var ukcarouselelement = Vue.component('ukcarouselelement', require('./components/dev.Ukcarouselelement.vue'));
+
+var slider = Vue.component('slider', require('./components/dev.slider.vue'));
+var slideritem = Vue.component('slideritem', require('./components/dev.sliderItem.vue'));
 
 var test = Vue.component('test', require('./components/Test.vue'));
+
+//------------------------------------------------
+
+var Sidebar = Vue.component('sidebar', require('./components/Sidebar.vue')); // TODO fix the capitalization of the variable throughout the code base
+var sidebarlink = Vue.component('sidebarlink', require('./components/SidebarLink.vue'));
+
 
 // Landing Page -----------------------------------------------------------------------------------
 var landing = Vue.component('landing', require('./components/PageSpecific/Landing/Content.vue'));
@@ -51,8 +65,7 @@ const app = new Vue({
     //     }
     // }
     components: {
-        'Carousel': Carousel,
-        'Slide': Slide,
+
     },
 });
 
