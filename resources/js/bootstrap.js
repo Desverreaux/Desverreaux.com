@@ -46,6 +46,15 @@ if (token) {
 
 // import Echo from 'laravel-echo'
 
+
+/**
+ * Anime.js is a 2D animation engine 
+ * git repo: https://github.com/juliangarnier/anime
+ */
+
+window.anime = require('animejs/lib/anime.js');
+
+
 // window.Pusher = require('pusher-js');
 
 // window.Echo = new Echo({

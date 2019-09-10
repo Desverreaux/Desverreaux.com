@@ -1,14 +1,25 @@
+// Breakpoints
+$xsmall-min: 0;
+$xsmall-max: 479px;
 
-// Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+$small-min: 480px;
+$small-max: 767px;
 
-// Variables
-@import 'variables';
+$medium-min: 768px;
+$medium-max:  959px;
 
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
+$large-min: 960px;
+$large-max: 1219px;
 
-.navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-}
+$xlarge-min: 1220px;
+
+
+@import 'CustomVariables';
+
+@import 'PageSpecific/_import';
+
+@import 'CustomStyling';
+
+// UIkit 3
+@import 'UIkit/UIkit.scss';
+
