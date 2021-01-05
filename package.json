@@ -11,7 +11,7 @@
         "test": "node -e 'require(\"./public/js/app\").test()'"
     },
     "devDependencies": {
-        "axios": "^0.18",
+        "axios": "^0.21",
         "bootstrap": "^4.1.1",
         "cross-env": "^5.1",
         "gravatar": "^1.0",
